@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {%block content%}
-<form>
+<form methon="POST"> {% csrf_token %}
+  {{ form.as_p}}
 <input type='submit' value='Save' />
 
 </form>
