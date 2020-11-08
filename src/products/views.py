@@ -66,15 +66,13 @@ def product_delete_view(request, id):
     }
     return render(request, 'products/product_delete.html',context)
 
-def render_initial_data(request, id):
-    initial_data = {
-        'title': "this is title"
-    }
-    obj = Product.objects.get(id=id)
-    form = ProductForm(request.POST or None, initial=initial_data, instance=obj)
+
+def product_update_view(request, id=id):
+    obj = get_object_or_404(Product, id=id)
+    form = ProductForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
     context = {
         'form': form
     }
-    return render(request, 'products/product_create.html',context)
+    return render(request, "products/product_create.html", context)

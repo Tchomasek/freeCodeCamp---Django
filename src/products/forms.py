@@ -26,20 +26,20 @@ class ProductForm(forms.ModelForm):
 
     def clean_title(self,*args, **kwargs):
         title = self.cleaned_data.get("title")
-        if not "a" in title:
-            raise forms.ValidationError("this is not a valid title")
+        #if not "a" in title:
+        #    raise forms.ValidationError("this is not a valid title")
         return title
 
     def clean_email(self,*args, **kwargs):
         email = self.cleaned_data.get("email")
-        if not email.endswith('edu'):
-            raise forms.ValidationError("this is not a valid email")
+        #if not email.endswith('edu'):
+        #    raise forms.ValidationError("this is not a valid email")
         return email
 
     def clean_price(self,*args, **kwargs):
         price = self.cleaned_data.get("price")
-        if price < 100:
-            raise forms.ValidationError("price too low")
+        #if price < 100:
+        #    raise forms.ValidationError("price too low")
         return price
 
 class RawProductForm(forms.Form):
